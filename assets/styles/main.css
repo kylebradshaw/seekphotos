@@ -1,1 +1,1 @@
-.jumbotron{text-align:center}.jumbotron h1{margin:0;margin-bottom:0.5em}
+.container.content{margin-top:60px}.thumbnail.ng-enter,.thumbnail.ng-leave{-webkit-transition:500ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;transition:500ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all}.thumbnail.ng-leave.thumbnail.ng-leave-active,.thumbnail.ng-enter{opacity:0}.thumbnail.ng-enter.ng-enter-active,.thumbnail.ng-leave{opacity:1}

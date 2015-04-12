@@ -2,12 +2,12 @@
     'use strict';
 
     angular
-        .module('pictureSearcher', [])
-        .controller('psCtrl', function($scope, $http) {
+        .module('instasearch', ['ngAnimate'])
+        .controller('isCtrl', function($scope, $http) {
             $scope.submitter = function() {
                 $scope.alertSuccess = $scope.alertDanger = false;
-                console.log($scope.psForm, 'psform');
-                if ($scope.psForm.$valid) {
+                console.log($scope.isForm, 'isform');
+                if ($scope.isForm.$valid) {
                     var mySearch = $scope.search;
                     $scope.search = '';
                     $scope.alertSuccess = true;
@@ -28,7 +28,7 @@
 
 
                     function successful(result) {
-                        console.log(result);
+                        // console.log(result);
                         if (result.data.meta.code !== 400 && result.data.data.length) {
                             $scope.pictures = result.data.data;
                             $scope.alertSuccess = false;
@@ -44,7 +44,7 @@
                     }
 
                     function errorful(result) {
-                        console.log(result);
+                        // console.log(result);
                         $scope.alertSuccess = false;
                         $scope.dangerMessage = "There has been an error!";
                         $scope.alertDanger = true;
@@ -52,7 +52,7 @@
 
                 } else {
                     $scope.alertDanger = true;
-                    $scope.dangerMessage = $scope.psForm.$error.pattern[0].$viewValue +
+                    $scope.dangerMessage = $scope.isForm.$error.pattern[0].$viewValue +
                         " is an invalid choice. Letters only please!";
                 }
             }
