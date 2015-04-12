@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pictureSearcher">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Picture Searcher</title <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
+</head>
+
+<body ng-controller="psCtrl as ps">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Instagram Searcher</h1>
+            <!-- http://goo.gl/kcHFzy -->
+            <form class="form" novalidate name="psForm" ng-submit="submitter()">
+                <div class="input-group">
+                    <input accesskey="s" type="text" class="form-control col-sm-10" placeholder="cats" required autofocus ng-model="search" ng-pattern="/^[A-Za-z ]+$/" role="search">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div ng-if="alertSuccess" ng-model="successMessage" class="alert alert-success" role="search"><p>{{successMessage}}</p></div>
+                <div ng-if="alertDanger" ng-model="dangerMessage" class="alert alert-danger" role="alert"><p>{{dangerMessage}}</p></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3" ng-repeat="picture in pictures">
+                <a class="thumbnail" target="_blank" href="{{picture.link}}">
+                    <img src="{{picture.images.thumbnail.url}}" alt="{{picture.caption.text}}">
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+    <script src="assets/scripts/app.js"></script>
+</body>
+
+</html>
