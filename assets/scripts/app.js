@@ -11,9 +11,9 @@
                     var mySearch = $scope.search;
                     $scope.search = '';
                     $scope.alertSuccess = true;
-                    $scope.successMessage = "Searching Instagram for photos tagged " + mySearch;
+                    $scope.successMessage = "Searching Instagram for photos tagged `" + mySearch + "`";
 
-                    var url = 'https://api.instagram.com/v1/tags/' + mySearch + '/media/recent';
+                    var url = 'https://api.instagram.com/v1/tags/' + mySearch.replace(' ', '') + '/media/recent';
                     var req = {
                         callback: 'JSON_CALLBACK',
                         client_id: '002afbe647b043438a497ae47b90470d'
