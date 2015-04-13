@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="instasearch">
+<html lang="en" ng-app="seekphotos">
 
 <head>
     <meta charset="UTF-8">
-    <title>Instasearch</title>
+    <title>seekphotos</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
     <!-- http://www.bootstrapcdn.com/#bootswatch_tab -->
     <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -18,10 +18,10 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <div class="navbar-brand">Instasearch</div>
-                <form novalidate name="isForm" ng-submit="submitter()" class="navbar-form pull-left" role="search">
+                <div class="navbar-brand">seekphotos</div>
+                <form novalidate name="isForm" ng-submit="submitter()" class="navbar-form pull-right" role="search">
                     <div class="input-group">
-                        <input accesskey="s" type="text" class="form-control col-sm-10" placeholder="search a tag   " required autofocus ng-model="search" ng-pattern="/^[A-Za-z ]+$/" role="search">
+                        <input accesskey="s" type="text" class="form-control col-sm-10" placeholder="search a tag" required autofocus ng-model="search" ng-pattern="/^[A-Za-z ]+$/" role="search">
                         <div class="input-group-btn">
                             <button type="submit" class="btn btn-primary">
                                 <span class="glyphicon glyphicon-search"></span>
@@ -32,22 +32,8 @@
             </div>
         </div>
     </div>
-    <!--     <div class="jumbotron">
-        <div class="container">
-            <h1>Instagram Searcher</h1>
-            <form class="form" novalidate name="isForm" ng-submit="submitter()">
-                <div class="input-group">
-                    <input accesskey="s" type="text" class="form-control col-sm-10" placeholder="cats" required autofocus ng-model="search" ng-pattern="/^[A-Za-z ]+$/" role="search">
-                    <div class="input-group-btn">
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
- -->
     <div class="container content" ng-cloak>
-        <div class="row">
+        <div class="row alert-wrapper">
             <div class="col-sm-12">
                 <div ng-if="alertSuccess" ng-model="successMessage" class="alert alert-success" role="search">
                     <p>{{successMessage}}</p>
@@ -57,10 +43,10 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-3" ng-repeat="picture in pictures">
+        <div class="row pictures" ng-if="pictures">
+            <div class="col-xs-3 picture" ng-repeat="picture in pictures">
                 <a class="thumbnail" target="_blank" href="{{picture.link}}">
-                    <img ng-src="{{picture.images.thumbnail.url}}" alt="{{picture.caption.text}}">
+                    <img ng-src="{{picture.images.thumbnail.url}}">
                 </a>
             </div>
         </div>
